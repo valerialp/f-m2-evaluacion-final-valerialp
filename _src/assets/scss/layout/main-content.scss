@@ -1,0 +1,21 @@
+.search-list{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+}
+.search-bar{
+    max-height: 25px;
+    border: none;
+    border-bottom: 2px solid lightslategrey;
+}
+.btn-search{
+    max-height: 25px;
+}
+.list-li{
+    width: 200px;
+}
+.image-program{
+    display: block;
+    width: 215px;
+    height: 295px;
+}
