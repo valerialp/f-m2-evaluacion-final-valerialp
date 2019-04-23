@@ -19,7 +19,3 @@ function handlerButtonClick() {
 }
 
 buttonSearchEl.addEventListener('click', handlerButtonClick);
-
-
-
-

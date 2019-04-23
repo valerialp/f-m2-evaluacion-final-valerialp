@@ -125,7 +125,7 @@ function showSearchProgram() {
 
             const favoriteProgram = [];
 
-            function handlerFavoriteProgram() {
+            function handlerFavoriteProgram(event) {
                 const resultList = event.currentTarget;
                 const name = resultList.outerText;
                 const image = resultList.lastChild.src;

@@ -23,7 +23,6 @@ for (let i = 0; i < favoriteProgram.length; i++) {
 }
 
 const btnReset = document.querySelectorAll('.btn-reset');
-console.log(btnReset)
 
 for (let i = 0; i < btnReset.length; i++) {
   btnReset[i].addEventListener('click', handlerButtonReset);
@@ -32,4 +31,15 @@ for (let i = 0; i < btnReset.length; i++) {
 function handlerButtonReset(event) {
   const mother = event.currentTarget.parentElement;
   mother.remove();
+  for (let i = 0; i < favoriteProgram.length; i++) {
+    const favoriteProgramEl = favoriteProgram[i];
+    const { name } = favoriteProgramEl;
+
+    if( name === mother.firstChild.innerHTML){
+      console.log(favoriteProgram[i]);
+      const index = favoriteProgram.indexOf(favoriteProgram[i]);
+      favoriteProgram.splice(index,1);
+      localStorage.setItem('fav', JSON.stringify(favoriteProgram));
+    }
+  }
 }
