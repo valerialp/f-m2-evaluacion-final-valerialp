@@ -1,11 +1,5 @@
-.search-list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-evenly;
-    align-content: flex-start;
-    margin: 0;
-    max-width: 900px;
-    text-align: center;
+.form-container{
+    padding-top: 20px;
 }
 .search-bar{
     margin-left: 30px;
@@ -25,9 +19,19 @@
     font-weight: bold;
     height: 25px;
 }
-
-.form-container{
-    padding-top: 20px;
+.list-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.search-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-content: flex-start;
+    margin: 0;
+    max-width: 900px;
+    text-align: center;
 }
 .list-li{
     background-color: pink;
@@ -36,28 +40,31 @@
     max-height: 322px;
     overflow:hidden;
 }
-.fav-list{
-    padding-right: 10px;
-    border-right: 1px solid lightslategray;
+.title-program{
+    margin: auto;
 }
 .image-program{
     display: block;
     width: 200px;
     height: 295px;
 }
-
+.fav-list{
+    padding-right: 10px;
+    border-right: 1px solid lightslategray;
+}
 .favorite{
     border: 1px solid  rgb(109, 0, 0);;
     color: white;
     background-color: rgb(109, 0, 0); ;
 }
-
-.title-program{
-    margin: auto;
-}
-
-.list-container{
+.list-li-fav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 5px;
+}
+.image-program-fav{
+    display: block;
+    width: 120px;
+    height: 120px;
 }

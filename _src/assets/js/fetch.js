@@ -143,7 +143,7 @@ function showSearchProgram() {
                 arrList[i].addEventListener('click', handlerFavoriteProgram);
             }
 
-            const localStorageArr = [];
+            const favoriteProgram = [];
 
             //esta funcion handler pinta en la lista de favoritos la serie selecionada ademas la da estilos distintos
             function handlerFavoriteProgram() {
@@ -155,8 +155,12 @@ function showSearchProgram() {
                 //crea un objeto con la serie favorita y la mete en el array de pelis fav
                 let object = { name: name, image: image };
                 console.log(object)
-                localStorageArr.push(object);
-                // localStorage.setItem('fav', localStorageArr);
+                favoriteProgram.push(object);
+                console.log(favoriteProgram)
+                // localStorage.setItem('fav', JSON.stringify(favoriteProgram));
+
+                // const saveFav = JSON.parse(localStorage.getItem('fav'));
+                // console.log(saveFav)
 
                 //pone o quitar la clase fav
                 resultList.classList.toggle('favorite');
