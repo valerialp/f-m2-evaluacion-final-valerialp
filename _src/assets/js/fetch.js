@@ -3,11 +3,6 @@ function showAllProgram() {
         .then(response => response.json())
         .then(function (data) {
 
-            let object = {
-                title: '',
-                image: '',
-            }
-
             //este bucle recorre el array data para sacar el titulo e imagen de cada serie y pintarlos en la ul principal
             for (let i = 0; i < data.length; i++) {
                 //sacar titulo e imagen de array
@@ -41,7 +36,6 @@ function showAllProgram() {
 
             }
 
-
             const arrList = document.querySelectorAll('.list-li');
 
             //este bucle pone escuchadores a todas las series pintadas
@@ -49,13 +43,17 @@ function showAllProgram() {
                 arrList[i].addEventListener('click', handlerFavoriteProgram);
             }
 
-
             //esta funcion handler pinta en la lista de favoritos la serie selecionada ademas la da estilos distintos
-            function handlerFavoriteProgram() {
+            function handlerFavoriteProgram(event) {
                 //hacer que todos los elementos del array sean escuchadores
                 const resultList = event.currentTarget;
                 const name = resultList.outerText;
                 const image = resultList.lastChild.src;
+
+                //crea un objeto con la serie favorita y la mete en el array de pelis fav
+                let object = { name: name, image: image };
+                favoriteProgram.push(object);
+                localStorage.setItem('fav', JSON.stringify(favoriteProgram));
 
                 //pone o quitar la clase fav
                 resultList.classList.toggle('favorite');
@@ -81,16 +79,12 @@ function showAllProgram() {
                     liFav.appendChild(titleH2Fav);
                     liFav.appendChild(imageElFav);
                     listFavEl.appendChild(liFav);
-                    console.log(liFav);
                 }
-                // else if(!resultList.classList.contains('favorite')){
-                //     liFav.remove();
-                // }
-
+             
             }
 
         }
-        );
+    );
 }
 
 function showSearchProgram() {
@@ -154,13 +148,8 @@ function showSearchProgram() {
 
                 //crea un objeto con la serie favorita y la mete en el array de pelis fav
                 let object = { name: name, image: image };
-                console.log(object)
                 favoriteProgram.push(object);
-                console.log(favoriteProgram)
-                // localStorage.setItem('fav', JSON.stringify(favoriteProgram));
-
-                // const saveFav = JSON.parse(localStorage.getItem('fav'));
-                // console.log(saveFav)
+                localStorage.setItem('fav', JSON.stringify(favoriteProgram));
 
                 //pone o quitar la clase fav
                 resultList.classList.toggle('favorite');
@@ -187,13 +176,8 @@ function showSearchProgram() {
                     liFav.appendChild(imageElFav);
                     listFavEl.appendChild(liFav);
                 }
-                // else if(!resultList.classList.contains('favorite')){
-                //     liFav.remove();
-                // }
 
             }
-
-
         }
     );
 }

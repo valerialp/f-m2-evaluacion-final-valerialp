@@ -1,6 +1,8 @@
 'use strict';
 
-let localStorage = [];
+const favoriteProgram = [];
+
+
 
 const inputSearchEl = document.querySelector('.search-bar');
 const buttonSearchEl = document.querySelector('.btn-search');

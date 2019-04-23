@@ -50,7 +50,9 @@
 }
 .fav-list{
     padding-right: 10px;
+    margin-left: 15px;
     border-right: 1px solid lightslategray;
+    width: 284px;
 }
 .favorite{
     border: 1px solid  rgb(109, 0, 0);;
@@ -62,6 +64,10 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 5px;
+    min-width: 273px;
+}
+.title-program-fav{
+    font-size: 16px;
 }
 .image-program-fav{
     display: block;
