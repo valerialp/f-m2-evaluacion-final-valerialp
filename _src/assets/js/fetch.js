@@ -33,7 +33,6 @@ function showAllProgram() {
                 li.appendChild(titleH2);
                 li.appendChild(imageEl);
                 listResultEl.appendChild(li);
-
             }
 
             const arrList = document.querySelectorAll('.list-li');
@@ -53,7 +52,9 @@ function showAllProgram() {
                 //crea un objeto con la serie favorita y la mete en el array de pelis fav
                 let object = { name: name, image: image };
                 favoriteProgram.push(object);
+                console.log(favoriteProgram)
                 localStorage.setItem('fav', JSON.stringify(favoriteProgram));
+                console.log(localStorage.getItem('fav'))
 
                 //pone o quitar la clase fav
                 resultList.classList.toggle('favorite');
@@ -73,14 +74,19 @@ function showAllProgram() {
                     imageElFav.setAttribute('class', 'image-program-fav');
                     imageElFav.setAttribute('alt', name);
                     imageElFav.setAttribute('src', image);
+                    //crear boton reset
+                    const btnResetEl = document.createElement('button')
+                    btnResetEl.setAttribute('type', 'button');
+                    btnResetEl.setAttribute('class', 'btn-reset');
+
 
                     //meter todo
                     titleH2Fav.innerHTML = name;
                     liFav.appendChild(titleH2Fav);
+                    liFav.appendChild(btnResetEl);
                     liFav.appendChild(imageElFav);
                     listFavEl.appendChild(liFav);
                 }
-             
             }
 
         }
@@ -169,10 +175,15 @@ function showSearchProgram() {
                     imageElFav.setAttribute('class', 'image-program-fav');
                     imageElFav.setAttribute('alt', name);
                     imageElFav.setAttribute('src', image);
+                    //crear boton reset
+                    const btnResetEl = document.createElement('button')
+                    btnResetEl.setAttribute('type', 'button');
+                    btnResetEl.setAttribute('class', 'btn-reset');
 
                     //meter todo
                     titleH2Fav.innerHTML = name;
                     liFav.appendChild(titleH2Fav);
+                    liFav.appendChild(btnResetEl);
                     liFav.appendChild(imageElFav);
                     listFavEl.appendChild(liFav);
                 }

@@ -68,9 +68,16 @@
 }
 .title-program-fav{
     font-size: 16px;
+    max-height: 40px;
 }
 .image-program-fav{
     display: block;
     width: 120px;
     height: 120px;
+}
+.btn-reset{
+    border: none;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
 }

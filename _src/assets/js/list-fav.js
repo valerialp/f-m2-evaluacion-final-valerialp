@@ -1,11 +1,8 @@
-const saveFav = JSON.parse(localStorage.getItem('fav'));
-console.log(saveFav)
 
-for (let i = 0; i < saveFav.length; i++) {
-    console.log('hola')
-    const saveFavEl = saveFav[i];
-    const { name } = saveFavEl;
-    const { image } = saveFavEl;
+for (let i = 0; i < favoriteProgram.length; i++) {
+  const favoriteProgramEl = favoriteProgram[i];
+  const { name } = favoriteProgramEl;
+  const { image } = favoriteProgramEl;
 
   //crear li-fav con clase
   const liFav = document.createElement('li');
@@ -19,13 +16,27 @@ for (let i = 0; i < saveFav.length; i++) {
   imageElFav.setAttribute('class', 'image-program-fav');
   imageElFav.setAttribute('alt', name);
   imageElFav.setAttribute('src', image);
+  //crear boton reset
+  const btnResetEl = document.createElement('button')
+  btnResetEl.setAttribute('type', 'button');
+  btnResetEl.setAttribute('class', 'btn-reset');
 
   //meter todo
   titleH2Fav.innerHTML = name;
   liFav.appendChild(titleH2Fav);
+  liFav.appendChild(btnResetEl);
   liFav.appendChild(imageElFav);
   listFavEl.appendChild(liFav);
-  
-  
 }
 
+const btnReset = document.querySelectorAll('.btn-reset');
+console.log(btnReset)
+
+for (let i = 0; i < btnReset.length; i++) {
+  btnReset[i].addEventListener('click', handlerButtonReset);
+}
+
+function handlerButtonReset(event) {
+  const mother = event.currentTarget.parentElement;
+  mother.remove();
+}
