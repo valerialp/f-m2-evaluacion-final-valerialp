@@ -3,7 +3,6 @@ function showAllProgram() {
         .then(response => response.json())
         .then(function (data) {
 
-            //este bucle recorre el array data para sacar el titulo e imagen de cada serie y pintarlos en la ul principal
             for (let i = 0; i < data.length; i++) {
                 //sacar titulo e imagen de array
                 const dataEl = data[i];
@@ -37,50 +36,34 @@ function showAllProgram() {
 
             const arrList = document.querySelectorAll('.list-li');
 
-            //este bucle pone escuchadores a todas las series pintadas
             for (let i = 0; i < arrList.length; i++) {
                 arrList[i].addEventListener('click', handlerFavoriteProgram);
             }
 
-            //esta funcion handler pinta en la lista de favoritos la serie selecionada ademas la da estilos distintos
             function handlerFavoriteProgram(event) {
-                //hacer que todos los elementos del array sean escuchadores
                 const resultList = event.currentTarget;
                 const name = resultList.outerText;
                 const image = resultList.lastChild.src;
 
-                //crea un objeto con la serie favorita y la mete en el array de pelis fav
                 let object = { name: name, image: image };
                 favoriteProgram.push(object);
-                console.log(favoriteProgram)
                 localStorage.setItem('fav', JSON.stringify(favoriteProgram));
-                console.log(localStorage.getItem('fav'))
 
-                //pone o quitar la clase fav
                 resultList.classList.toggle('favorite');
 
-                //si tiene la clase container se pinta en "mis series favoritas"
                 if (resultList.classList.contains('favorite')) {
 
-                    //crear li-fav con clase
                     const liFav = document.createElement('li');
                     liFav.setAttribute('class', 'list-li-fav');
-                    //crea h2-fav con clase y titulo                  
                     const titleH2Fav = document.createElement('h2');
                     titleH2Fav.setAttribute('class', 'title-program-fav');
-                    // const h2ContentFav = document.createElement(name);
-                    //crear imagen-fav con clase, alt y src
                     const imageElFav = document.createElement('img');
                     imageElFav.setAttribute('class', 'image-program-fav');
                     imageElFav.setAttribute('alt', name);
                     imageElFav.setAttribute('src', image);
-                    //crear boton reset
                     const btnResetEl = document.createElement('button')
                     btnResetEl.setAttribute('type', 'button');
                     btnResetEl.setAttribute('class', 'btn-reset');
-
-
-                    //meter todo
                     titleH2Fav.innerHTML = name;
                     liFav.appendChild(titleH2Fav);
                     liFav.appendChild(btnResetEl);
@@ -89,8 +72,7 @@ function showAllProgram() {
                 }
             }
 
-        }
-    );
+        });
 }
 
 function showSearchProgram() {
@@ -100,7 +82,6 @@ function showSearchProgram() {
         .then(response => response.json())
         .then(function (data) {
 
-            //este bucle recorre el array data para sacar el titulo e imagen de cada serie buacada y pintarlos en la ul principal
             for (let i = 0; i < data.length; i++) {
                 //sacar titulo e imagen de array
                 const dataEl = data[i];
@@ -138,49 +119,37 @@ function showSearchProgram() {
 
             const arrList = document.querySelectorAll('.list-li');
 
-            //este bucle pone escuchadores a todas las series pintadas
             for (let i = 0; i < arrList.length; i++) {
                 arrList[i].addEventListener('click', handlerFavoriteProgram);
             }
 
             const favoriteProgram = [];
 
-            //esta funcion handler pinta en la lista de favoritos la serie selecionada ademas la da estilos distintos
             function handlerFavoriteProgram() {
-                //selecionar el elemento escuchador del click
                 const resultList = event.currentTarget;
                 const name = resultList.outerText;
                 const image = resultList.lastChild.src;
 
-                //crea un objeto con la serie favorita y la mete en el array de pelis fav
                 let object = { name: name, image: image };
                 favoriteProgram.push(object);
                 localStorage.setItem('fav', JSON.stringify(favoriteProgram));
 
-                //pone o quitar la clase fav
                 resultList.classList.toggle('favorite');
 
-                //si tiene la clase container se pinta en "mis series favoritas"
                 if (resultList.classList.contains('favorite')) {
 
-                    //crear li-fav con clase
                     const liFav = document.createElement('li');
                     liFav.setAttribute('class', 'list-li-fav');
-                    //crea h2-fav con clase y titulo                  
                     const titleH2Fav = document.createElement('h2');
                     titleH2Fav.setAttribute('class', 'title-program-fav');
-                    // const h2ContentFav = document.createElement(name);
-                    //crear imagen-fav con clase, alt y src
                     const imageElFav = document.createElement('img');
                     imageElFav.setAttribute('class', 'image-program-fav');
                     imageElFav.setAttribute('alt', name);
                     imageElFav.setAttribute('src', image);
-                    //crear boton reset
                     const btnResetEl = document.createElement('button')
                     btnResetEl.setAttribute('type', 'button');
                     btnResetEl.setAttribute('class', 'btn-reset');
 
-                    //meter todo
                     titleH2Fav.innerHTML = name;
                     liFav.appendChild(titleH2Fav);
                     liFav.appendChild(btnResetEl);
@@ -189,6 +158,5 @@ function showSearchProgram() {
                 }
 
             }
-        }
-    );
+        });
 }

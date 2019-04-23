@@ -4,7 +4,7 @@
 .search-bar{
     margin-left: 30px;
     max-height: 40px;
-    max-width: 140px;
+    max-width: 190px;
     padding: 4px;
     box-shadow: 1px 1px 1px 1px rgb(141, 141, 141);
     border: none;
@@ -14,8 +14,8 @@
     border-style: none;
     border-radius: 3px;
     box-shadow: 1px 1px 1px 1px rgb(141, 141, 141);
-    background-color: rgb(109, 0, 0);
-    color: white;
+    background-color: $colorBackgroundPrimary;
+    color: $colorTextPrimary;
     font-weight: bold;
     height: 25px;
 }
@@ -34,7 +34,7 @@
     text-align: center;
 }
 .list-li{
-    background-color: pink;
+    background-color: $colorBackgroundSecondary;
     margin: 5px;
     max-width: 200px;
     max-height: 322px;
@@ -55,9 +55,9 @@
     width: 284px;
 }
 .favorite{
-    border: 1px solid  rgb(109, 0, 0);;
-    color: white;
-    background-color: rgb(109, 0, 0); ;
+    border: 1px solid  $colorBackgroundPrimary;
+    color: $colorTextPrimary;
+    background-color: $colorBackgroundPrimary;
 }
 .list-li-fav{
     display: flex;
