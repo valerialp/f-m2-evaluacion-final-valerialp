@@ -64,6 +64,9 @@ function showAllProgram() {
                     const btnResetEl = document.createElement('button')
                     btnResetEl.setAttribute('type', 'button');
                     btnResetEl.setAttribute('class', 'btn-reset');
+                    const btnContent =document.createTextNode('X');
+
+                    btnResetEl.appendChild(btnContent);
                     titleH2Fav.innerHTML = name;
                     liFav.appendChild(titleH2Fav);
                     liFav.appendChild(btnResetEl);
@@ -83,18 +86,14 @@ function showSearchProgram() {
         .then(function (data) {
 
             for (let i = 0; i < data.length; i++) {
-                //sacar titulo e imagen de array
                 const dataEl = data[i];
                 const { show: { name } } = dataEl;
 
-                //crear li con clase
                 const li = document.createElement('li');
                 li.setAttribute('class', 'list-li');
-                //crea h2 con clase y titulo
                 const titleH2 = document.createElement('h2');
                 titleH2.setAttribute('class', 'title-program');
                 const h2Content = document.createTextNode(name);
-                //crear imagen con clase, alt y href
                 const imageEl = document.createElement('img');
                 imageEl.setAttribute('class', 'image-program');
                 imageEl.setAttribute('alt', name);
@@ -109,7 +108,6 @@ function showSearchProgram() {
 
                 }
 
-                //meter todo
                 titleH2.appendChild(h2Content);
                 li.appendChild(titleH2);
                 li.appendChild(imageEl);
@@ -149,6 +147,9 @@ function showSearchProgram() {
                     const btnResetEl = document.createElement('button')
                     btnResetEl.setAttribute('type', 'button');
                     btnResetEl.setAttribute('class', 'btn-reset');
+                    const btnContent =document.createTextNode('X');
+
+                    btnResetEl.appendChild(btnContent);
 
                     titleH2Fav.innerHTML = name;
                     liFav.appendChild(titleH2Fav);

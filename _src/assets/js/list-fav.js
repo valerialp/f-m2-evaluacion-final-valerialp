@@ -14,7 +14,9 @@ for (let i = 0; i < favoriteProgram.length; i++) {
   const btnResetEl = document.createElement('button')
   btnResetEl.setAttribute('type', 'button');
   btnResetEl.setAttribute('class', 'btn-reset');
+  const btnContent =document.createTextNode('X');
 
+  btnResetEl.appendChild(btnContent);
   titleH2Fav.innerHTML = name;
   liFav.appendChild(titleH2Fav);
   liFav.appendChild(btnResetEl);
