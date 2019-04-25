@@ -4,18 +4,14 @@ function showAllProgram() {
         .then(function (data) {
 
             for (let i = 0; i < data.length; i++) {
-                //sacar titulo e imagen de array
                 const dataEl = data[i];
                 const { name } = dataEl;
 
-                //crear li con clase
                 const li = document.createElement('li');
                 li.setAttribute('class', 'list-li');
-                //crea h2 con clase y titulo
                 const titleH2 = document.createElement('h2');
                 titleH2.setAttribute('class', 'title-program');
                 const h2Content = document.createTextNode(name);
-                //crear imagen con clase, alt y src
                 const imageEl = document.createElement('img');
                 imageEl.setAttribute('class', 'image-program');
                 imageEl.setAttribute('alt', name);
@@ -27,7 +23,6 @@ function showAllProgram() {
                     imageEl.setAttribute('src', medium);
                 }
 
-                //meter todo
                 titleH2.appendChild(h2Content);
                 li.appendChild(titleH2);
                 li.appendChild(imageEl);
@@ -78,6 +73,25 @@ function showAllProgram() {
         });
 }
 
+function handlerTestNumber(event){
+
+    for(let i = 0; i < arrTest.length; i++){
+        const number = arrTest[i];
+        const searchNumber = parseInt(event.currentTarget.innerHTML);
+        if(searchNumber < number){
+            const message = 'El número de resultados es ' + searchNumber + ' y es menor que ' + number;
+            console.log(message);
+        } else if( searchNumber > number){
+            const message = 'El número de resultados es ' + searchNumber + ' y es mayor que ' + number;
+            console.log(message);
+        } else if(searchNumber === number){
+            const message = 'El número de resultados es ' + searchNumber + ' y es igual que ' + number;
+            console.log(message);
+        }
+       
+    }
+}
+
 function showSearchProgram() {
     const inputSearchValue = inputSearchEl.value;
 
@@ -85,12 +99,27 @@ function showSearchProgram() {
         .then(response => response.json())
         .then(function (data) {
 
+            const search = document.createElement('p');
+            search.setAttribute('class', 'number-search');
+            const searchNumber = document.createTextNode(data.length);
+
+            search.appendChild(searchNumber);
+            listResultEl.appendChild(search);
+
+            
+
+            search.addEventListener('click', handlerTestNumber);
+
             for (let i = 0; i < data.length; i++) {
                 const dataEl = data[i];
                 const { show: { name } } = dataEl;
+                const {show: {premiered}} = dataEl;
 
                 const li = document.createElement('li');
                 li.setAttribute('class', 'list-li');
+                const date = document.createElement('p');
+                date.setAttribute('class', 'premiered-date');
+                const datePremiered = document.createTextNode(premiered);                
                 const titleH2 = document.createElement('h2');
                 titleH2.setAttribute('class', 'title-program');
                 const h2Content = document.createTextNode(name);
@@ -107,7 +136,8 @@ function showSearchProgram() {
                     imageEl.setAttribute('src', medium);
 
                 }
-
+                date.appendChild(datePremiered);
+                li.appendChild(date);
                 titleH2.appendChild(h2Content);
                 li.appendChild(titleH2);
                 li.appendChild(imageEl);
@@ -157,6 +187,8 @@ function showSearchProgram() {
                     liFav.appendChild(imageElFav);
                     listFavEl.appendChild(liFav);
                 }
+
+
 
             }
         });
